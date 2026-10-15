@@ -1,19 +1,19 @@
 # AgentCheck
 
-A student-focused prototype for exploring education-agent experiences. Built with Next.js, React and TypeScript.
+Public student-focused education-agent review directory aligned to AgentCheck PRD Draft v1 (15 October 2026).
 
-## Run locally
+## Current status
+The interface has been revised to reflect the PRD: 1–5 star review concept, neutral topic tags, state/topic/rating filters, sorting, dispute entry point, privacy language, draft terms, moderation policy and About disclosure page. There are no fabricated sample reviews. Real review submission and admin moderation are intentionally disabled until the secure backend is implemented.
 
-```bash
-npm install
-npm run dev
-```
+## Required before launch
+- Supabase (or equivalent) persistent storage with Row Level Security.
+- Server-side email verification and abuse limits (maximum three reviews per email per day).
+- Admin-only authentication with MFA and public sign-ups disabled.
+- Moderation queue, audit trail, dispute handling and secure hide action.
+- Final terms, privacy/collection notice, moderation policy, takedown procedure and operator-interest disclosure.
+- Australian defamation/media and privacy legal review.
 
-## Current prototype limitations
+## Database schema draft
+The proposed schema is in supabase/schema.sql. Review it with a security engineer before applying. It enables RLS and grants public reads only for approved reviews; it intentionally does not add public insert/update policies. Server-side routes, email delivery, MFA role checks and audit logging still need to be implemented and tested.
 
-- No database or server-side submission API is configured.
-- Report drafts are stored only in the submitting browser's local storage.
-- The moderation page is a local workflow preview, not secure admin authentication.
-- Sample cards are illustrative demo content, not real reviews.
-
-Before collecting real reports or publishing claims about identifiable people/businesses, add secure server-side authentication, persistent storage, email verification, moderation/takedown workflows, and legal/privacy review.
+This project can deploy as a frontend without database credentials, but it is not yet a production review service. Never expose a service-role key in browser code. This project documentation is not legal advice.
