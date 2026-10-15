@@ -1,0 +1,5 @@
+import type { Metadata } from "next";
+import Link from "next/link";
+import "./globals.css";
+export const metadata: Metadata = { title: "AgentCheck — Make informed decisions", description: "Explore student experiences with education agents and share your own experience safely." };
+export default function RootLayout({ children }: { children: React.ReactNode }) { return <html lang="en"><body><header className="header"><div className="nav"><Link href="/" className="brand"><span className="mark">A✓</span><span>AgentCheck<small>STUDENT EXPERIENCES</small></span></Link><nav><Link href="/#explore">Explore</Link><Link href="/privacy">Our standards</Link><Link className="navcta" href="/report">Share experience ↗</Link></nav></div></header><main>{children}</main><footer><div className="footer"><b>AgentCheck®</b><p>Helping students make more informed decisions.</p><div><Link href="/privacy">Privacy & standards</Link><Link href="/report">Share experience</Link></div><small>Experiences reflect individual submissions and are not endorsements or independently verified facts.</small></div></footer></body></html> }
